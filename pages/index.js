@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useSyncExternalStore } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, Ruler, Hammer, CalendarCheck, ChevronLeft } from "lucide-react";
+import Carousel from "@/components/Carousel";
+
 
 // Router
 // SSR-safe hash router helpers
