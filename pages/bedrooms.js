@@ -1,4 +1,4 @@
-export default function Bedrooms() {
+export default function Bathrooms() {
   return (
     <div style={{minHeight:"100vh",fontFamily:"sans-serif"}}>
       <header style={{position:"sticky",top:0,padding:"16px",borderBottom:"1px solid #e5e5e5",background:"#fff"}}>
@@ -13,8 +13,8 @@ export default function Bedrooms() {
         </nav>
       </header>
       <main style={{maxWidth:960,margin:"0 auto",padding:"48px 16px"}}>
-        <h1 style={{fontSize:32,marginBottom:8}}>Bedrooms</h1>
-        <p style={{color:"#555"}}>Sliding wardrobes and built-in storage. Content coming soon.</p>
+        <h1 style={{fontSize:32,marginBottom:8}}>Bathrooms</h1>
+        <p style={{color:"#555"}}>Fitted bathrooms and vanity units. Content coming soon.</p>
       </main>
       <footer style={{borderTop:"1px solid #e5e5e5",background:"#fafafa",marginTop:48}}>
         <div style={{maxWidth:960,margin:"0 auto",padding:"24px 16px",fontSize:14,color:"#555"}}>
