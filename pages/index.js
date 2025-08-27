@@ -4,11 +4,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, Ruler, Hammer, CalendarCheck, ChevronLeft } from "lucide-react";
 
 // Router
+// SSR-safe hash router helpers
 const useHash = () => {
-  const subscribe = (cb) => { window.addEventListener("hashchange", cb); return () => window.removeEventListener("hashchange", cb); };
-  const get = () => window.location.hash.replace(/^#\/?/, "");
+  const subscribe = (cb) => {
+    if (typeof window === "undefined") return () => {};
+    window.addEventListener("hashchange", cb);
+    return () => window.removeEventListener("hashchange", cb);
+  };
+  const get = () =>
+    typeof window === "undefined"
+      ? ""
+      : window.location.hash.replace(/^#\/?/, "");
   return useSyncExternalStore(subscribe, get, get);
 };
+
+const navigate = (path) => {
+  if (typeof window === "undefined") return;
+  window.location.hash = "/" + path.replace(/^\/?/, "");
+};
+
 const navigate = (path) => { window.location.hash = "/" + path.replace(/^\/?/, ""); };
 
 // CTA
