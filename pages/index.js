@@ -23,6 +23,17 @@ const navigate = (path) => {
   window.location.hash = "/" + path.replace(/^\/?/, "");
 };
 
+{/* Hero carousel */}
+<Carousel
+  className="border-b"
+  slides={[
+    "/images/home/cambridge-fir-green.jpg",
+    "/images/home/cambridge-indigo.jpg",
+    "/images/home/kitchens-hero.jpg",
+    "/images/home/newmarket-d.jpg",
+    "/images/home/sage-island.jpg",
+  ]}
+/>
 
 
 // CTA
