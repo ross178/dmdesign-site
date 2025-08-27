@@ -23,7 +23,7 @@ const navigate = (path) => {
   window.location.hash = "/" + path.replace(/^\/?/, "");
 };
 
-const navigate = (path) => { window.location.hash = "/" + path.replace(/^\/?/, ""); };
+
 
 // CTA
 const BookCTA = ({ className = "" }) => (
