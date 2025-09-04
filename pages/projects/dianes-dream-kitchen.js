@@ -35,12 +35,12 @@ export default function DianesDreamKitchen() {
           With that trust, the team created a space that’s as functional as it is beautiful.
         </p>
 
-        {/* Section 1 */}
+        {/* Section 1 — diane-extra-11 */}
         <article style={{lineHeight:1.7,fontSize:16,color:"#333"}}>
           <div style={{margin:"22px 0 12px"}}>
             <img
-              src="/images/projects/diane/diane-kitchen-island.jpg"
-              alt="Kitchen island with porcelain-painted shaker cabinetry"
+              src="/images/projects/diane/diane-extra-11.jpg"
+              alt="Diane’s Dream Kitchen — feature view (extra 11)"
               style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
             />
           </div>
@@ -56,7 +56,7 @@ export default function DianesDreamKitchen() {
             and materials that will age well.”
           </blockquote>
 
-          {/* Section 2 */}
+          {/* Section 2 — diane-bench-detail */}
           <div style={{margin:"22px 0 12px"}}>
             <img
               src="/images/projects/diane/diane-bench-detail.jpg"
@@ -69,11 +69,11 @@ export default function DianesDreamKitchen() {
             cohesive — same paint, same proportions, zero visual noise.
           </p>
 
-          {/* Section 3 */}
+          {/* Section 3 — diane-extra-15 */}
           <div style={{margin:"22px 0 12px"}}>
             <img
-              src="/images/projects/diane/diane-dining-living-overview.jpg"
-              alt="Open-plan view from kitchen to dining and living"
+              src="/images/projects/diane/diane-extra-15.jpg"
+              alt="Open-plan perspective across kitchen, dining and living (extra 15)"
               style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
             />
           </div>
@@ -86,14 +86,7 @@ export default function DianesDreamKitchen() {
             ties the kitchen into the <strong>open-plan dining and living</strong> spaces.
           </p>
 
-          {/* Section 4 */}
-          <div style={{margin:"22px 0 12px"}}>
-            <img
-              src="/images/projects/diane/diane-lounge-media-wall.jpg"
-              alt="Lounge with media wall joinery"
-              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
-            />
-          </div>
+          {/* (Removed previous Section 4 image to keep total at four) */}
           <p>
             In the lounge, a <strong>bespoke media wall</strong> frames the TV and hides cabling, so the whole space reads clean and calm.
             The finished result reflects both Ryan’s creativity and Diane’s trust in the process — premium, personal, and built for daily life.
