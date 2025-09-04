@@ -78,6 +78,16 @@ export default function DianesDreamKitchen() {
             />
           </div>
           <p>
+
+              {/* Section 4 — diane-extra-13 */}
+<div style={{margin:"22px 0 12px"}}>
+  <img
+    src="/images/projects/diane/diane-extra-13.jpg"
+    alt="Kitchen and dining connection (extra 13)"
+    style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+  />
+</div>
+
             The floor is a real highlight: <strong>Jurassic limestone</strong> from{" "}
             <a href="https://www.strathearnstone.co.uk/" target="_blank" rel="noreferrer" style={{color:"#111"}}>
               Strathearn Stone &amp; Timber
