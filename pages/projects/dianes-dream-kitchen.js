@@ -1,89 +1,129 @@
 // pages/projects/dianes-dream-kitchen.js
 export default function DianesDreamKitchen() {
-  const gallery = [
-    // Replace these with your real filenames once uploaded
-    "/images/projects/diane/hero.jpg",
-    "/images/projects/diane/kitchen-island.jpg",
-    "/images/projects/diane/dining-living.jpg",
-    "/images/projects/diane/lounge.jpg",
-    "/images/projects/diane/bench-detail.jpg",
-  ];
-
   return (
-    <div style={{minHeight:"100vh",fontFamily:"sans-serif"}}>
-      {/* Header */}
-      <header style={{position:"sticky",top:0,padding:"16px",borderBottom:"1px solid #e5e5e5",background:"#fff"}}>
-        <a href="/projects" style={{textDecoration:"none",color:"#111"}}>← Back to Recent Projects</a>
-        <nav style={{float:"right"}}>
-          <a href="/kitchens" style={{marginLeft:16}}>Kitchens</a>
-          <a href="/bedrooms" style={{marginLeft:16}}>Bedrooms</a>
-          <a href="/bathrooms" style={{marginLeft:16}}>Bathrooms</a>
-          <a href="/projects" style={{marginLeft:16}}>Recent Projects</a>
-          <a href="/news" style={{marginLeft:16}}>In The News</a>
-          <a href="/contact" style={{marginLeft:16}}>Contact</a>
-        </nav>
+    <div style={{fontFamily:"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif",color:"#111"}}>
+      {/* Top bar */}
+      <header style={{position:"sticky",top:0,background:"#fff",borderBottom:"1px solid #eee",zIndex:20}}>
+        <div style={{maxWidth:1120,margin:"0 auto",padding:"14px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <a href="/projects" style={{textDecoration:"none",color:"#111"}}>← Recent Projects</a>
+          <nav style={{fontSize:14}}>
+            <a href="/kitchens" style={{marginLeft:16,textDecoration:"none",color:"#444"}}>Kitchens</a>
+            <a href="/bedrooms" style={{marginLeft:16,textDecoration:"none",color:"#444"}}>Bedrooms</a>
+            <a href="/bathrooms" style={{marginLeft:16,textDecoration:"none",color:"#444"}}>Bathrooms</a>
+            <a href="/news" style={{marginLeft:16,textDecoration:"none",color:"#444"}}>In The News</a>
+            <a href="/contact" style={{marginLeft:16,textDecoration:"none",color:"#444"}}>Contact</a>
+          </nav>
+        </div>
       </header>
 
-      {/* Body */}
-      <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 16px"}}>
-        <h1 style={{fontSize:32,marginBottom:8}}>Diane’s Dream Kitchen</h1>
-        <p style={{color:"#666",marginBottom:24}}>
-          When Diane approached Ryan to design a new kitchen and living area for her impressive extension, it was the kind of project that designers love to be part of. With Diane open to ideas, Ryan and the team had the freedom to bring creative instincts to the forefront and craft a space that is as functional as it is beautiful.
-        </p>
-
-        {/* Hero image */}
-        <div style={{height:420,borderRadius:16,overflow:"hidden",border:"1px solid #e5e5e5",background:"#f4f4f4",marginBottom:24}}>
+      {/* Hero */}
+      <section style={{maxWidth:1280,margin:"0 auto"}}>
+        <div style={{height:460,background:"#f6f6f6",borderBottom:"1px solid #eee",overflow:"hidden"}}>
           <img
-            src={gallery[0]}
-            alt="Diane’s Kitchen – Hero"
+            src="/images/projects/diane/diane-hero-kitchen-overview.jpg"
+            alt="Diane’s Kitchen – Overview"
             style={{width:"100%",height:"100%",objectFit:"cover"}}
           />
         </div>
+      </section>
 
-        {/* Body copy */}
-        <div style={{maxWidth:820,color:"#444",lineHeight:1.6}}>
-          <p>
-            The result was a timeless kitchen featuring <strong>solid timber painted shaker doors in Porcelain</strong>, paired with a <strong>white mottled quartz worktop</strong>. To add depth and warmth, the team specified <strong>antique bronze handles and taps</strong>, balancing elegance with subtle character.
-          </p>
-          <p>
-            For contrast, a striking <strong>real Jurassic limestone tiled floor</strong> was sourced from{" "}
-            <a href="https://www.strathearnstone.co.uk/" target="_blank" rel="noreferrer">Strathearn Stone and Timber</a>{" "}
-            in Perth. The darker tones of the limestone anchor the light cabinetry and work surfaces, creating a sophisticated balance across the room.
-          </p>
-          <p>
-            The brief extended beyond the kitchen: Ryan also designed a <strong>custom dresser for the dining area</strong> and a <strong>bespoke media unit</strong> to frame the TV, ensuring the open-plan space feels seamlessly connected and tailored to Diane’s lifestyle.
-          </p>
-          <p>
-            The project was worth the wait. The finished installation reflects both Ryan’s creativity and Diane’s trust in the process — a kitchen and living space that feels premium, personal, and perfectly suited to its setting.
-          </p>
-        </div>
+      {/* Title + intro */}
+      <main style={{maxWidth:920,margin:"0 auto",padding:"28px 16px 40px"}}>
+        <h1 style={{fontSize:36,lineHeight:1.2,margin:"6px 0 10px"}}>Diane’s Dream Kitchen & Living Space</h1>
+        <p style={{color:"#666",fontSize:16,margin:"0 0 18px"}}>
+          When Diane asked Ryan to design a new kitchen and living area for her extension, she was open to ideas — the perfect brief.
+          With that trust, the team created a space that’s as functional as it is beautiful.
+        </p>
 
-        {/* Gallery */}
-        <h2 style={{fontSize:20,marginTop:32,marginBottom:12}}>Gallery</h2>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
-          {gallery.slice(1).map((src) => (
-            <div key={src} style={{height:200,borderRadius:12,overflow:"hidden",border:"1px solid #e5e5e5",background:"#f4f4f4"}}>
-              <img src={src} alt="Diane’s Kitchen" style={{width:"100%",height:"100%",objectFit:"cover"}} />
-            </div>
-          ))}
-        </div>
+        {/* Section 1 */}
+        <article style={{lineHeight:1.7,fontSize:16,color:"#333"}}>
+          <div style={{margin:"22px 0 12px"}}>
+            <img
+              src="/images/projects/diane/diane-kitchen-island.jpg"
+              alt="Kitchen island with porcelain-painted shaker cabinetry"
+              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+            />
+          </div>
+          <p>
+            The core is a timeless shaker kitchen in <strong>porcelain-painted solid timber</strong>, paired with a
+            <strong> white mottled quartz</strong> worktop. <strong>Antique bronze</strong> handles and taps add warmth and
+            character without shouting, keeping the look calm and premium.
+          </p>
+
+          {/* Pull quote */}
+          <blockquote style={{margin:"18px 0",padding:"14px 16px",borderLeft:"3px solid #111",background:"#fafafa",color:"#444"}}>
+            “Everything was designed around how the family actually lives day-to-day — storage where it matters, light where it’s needed,
+            and materials that will age well.”
+          </blockquote>
+
+          {/* Section 2 */}
+          <div style={{margin:"22px 0 12px"}}>
+            <img
+              src="/images/projects/diane/diane-bench-detail.jpg"
+              alt="Bespoke bench seating and dresser detail"
+              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+            />
+          </div>
+          <p>
+            Beyond the main run, we designed a <strong>bespoke dresser and bench seating</strong> to keep the dining zone practical and
+            cohesive — same paint, same proportions, zero visual noise.
+          </p>
+
+          {/* Section 3 */}
+          <div style={{margin:"22px 0 12px"}}>
+            <img
+              src="/images/projects/diane/diane-dining-living-overview.jpg"
+              alt="Open-plan view from kitchen to dining and living"
+              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+            />
+          </div>
+          <p>
+            The floor is a real highlight: <strong>Jurassic limestone</strong> from{" "}
+            <a href="https://www.strathearnstone.co.uk/" target="_blank" rel="noreferrer" style={{color:"#111"}}>
+              Strathearn Stone &amp; Timber
+            </a>
+            , grounding the light cabinetry and adding texture underfoot. It anchors the room and
+            ties the kitchen into the <strong>open-plan dining and living</strong> spaces.
+          </p>
+
+          {/* Section 4 */}
+          <div style={{margin:"22px 0 12px"}}>
+            <img
+              src="/images/projects/diane/diane-lounge-media-wall.jpg"
+              alt="Lounge with media wall joinery"
+              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+            />
+          </div>
+          <p>
+            In the lounge, a <strong>bespoke media wall</strong> frames the TV and hides cabling, so the whole space reads clean and calm.
+            The finished result reflects both Ryan’s creativity and Diane’s trust in the process — premium, personal, and built for daily life.
+          </p>
+
+          {/* Optionals if you uploaded more */}
+          {/* <div style={{margin:"22px 0 12px"}}>
+            <img src="/images/projects/diane/diane-worktop-detail.jpg" alt="Worktop detail" style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}/>
+          </div> */}
+        </article>
 
         {/* CTA */}
-        <div style={{marginTop:32,padding:16,border:"1px solid #e5e5e5",borderRadius:12}}>
-          <div style={{fontWeight:600,marginBottom:8}}>Inspired by Diane’s kitchen?</div>
-          <a href="/contact" style={{display:"inline-block",padding:"10px 14px",borderRadius:12,background:"#111",color:"#fff",textDecoration:"none"}}>
+        <div style={{margin:"28px 0 0",padding:"18px",border:"1px solid #eee",borderRadius:14,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
+          <div style={{fontWeight:600}}>Inspired by Diane’s kitchen?</div>
+          <a href="/contact" style={{padding:"10px 14px",borderRadius:12,background:"#111",color:"#fff",textDecoration:"none"}}>
             Book your free home design appointment
           </a>
         </div>
       </main>
 
       {/* Footer */}
-      <footer style={{borderTop:"1px solid #e5e5e5",background:"#fafafa",marginTop:48}}>
-        <div style={{maxWidth:1120,margin:"0 auto",padding:"24px 16px",fontSize:14,color:"#555"}}>
+      <footer style={{borderTop:"1px solid #eee",background:"#fafafa",marginTop:20}}>
+        <div style={{maxWidth:1120,margin:"0 auto",padding:"18px 16px",fontSize:14,color:"#555"}}>
           <div>© {new Date().getFullYear()} DM Design</div>
           <div>sales@DMdesign.uk · 0131 344 0936 · Designed &amp; crafted in Scotland</div>
         </div>
       </footer>
     </div>
+  );
+}
+
   );
 }
