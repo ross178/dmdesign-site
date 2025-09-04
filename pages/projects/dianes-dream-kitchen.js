@@ -77,26 +77,25 @@ export default function DianesDreamKitchen() {
               style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
             />
           </div>
+
+          {/* Section 4 — diane-extra-13 */}
+          <div style={{margin:"22px 0 12px"}}>
+            <img
+              src="/images/projects/diane/diane-extra-13.jpg"
+              alt="Kitchen and dining connection (extra 13)"
+              style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
+            />
+          </div>
+
           <p>
-
-              {/* Section 4 — diane-extra-13 */}
-<div style={{margin:"22px 0 12px"}}>
-  <img
-    src="/images/projects/diane/diane-extra-13.jpg"
-    alt="Kitchen and dining connection (extra 13)"
-    style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}
-  />
-</div>
-
             The floor is a real highlight: <strong>Jurassic limestone</strong> from{" "}
-            <a href="https://www.strathearnstone.co.uk/" target="_blank" rel="noreferrer" style={{color:"#111"}}>
+            <a href="https://stoneandtimber.co.uk/" target="_blank" rel="noreferrer" style={{color:"#111"}}>
               Strathearn Stone &amp; Timber
             </a>
             , grounding the light cabinetry and adding texture underfoot. It anchors the room and
             ties the kitchen into the <strong>open-plan dining and living</strong> spaces.
           </p>
 
-          {/* (Removed previous Section 4 image to keep total at four) */}
           <p>
             In the lounge, a <strong>bespoke media wall</strong> frames the TV and hides cabling, so the whole space reads clean and calm.
             The finished result reflects both Ryan’s creativity and Diane’s trust in the process — premium, personal, and built for daily life.
@@ -122,3 +121,4 @@ export default function DianesDreamKitchen() {
     </div>
   );
 }
+
