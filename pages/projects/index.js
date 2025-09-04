@@ -13,9 +13,41 @@ export default function Projects() {
         </nav>
       </header>
       <main style={{maxWidth:960,margin:"0 auto",padding:"48px 16px"}}>
-        <h1 style={{fontSize:32,marginBottom:8}}>Recent Projects</h1>
-        <p style={{color:"#555"}}>Featured installs and testimonials. Content coming soon.</p>
-      </main>
+  <h1 style={{fontSize:32,marginBottom:8}}>Recent Projects</h1>
+  <p style={{color:"#555",marginBottom:24}}>
+    Featured installs and customer case studies.
+  </p>
+
+  {/* Diane’s Project Card */}
+  <a
+    href="/projects/dianes-dream-kitchen"
+    style={{
+      display: "block",
+      border: "1px solid #eee",
+      borderRadius: 16,
+      overflow: "hidden",
+      textDecoration: "none",
+      color: "inherit",
+      marginTop: 24
+    }}
+  >
+    <div style={{ height: 260, background: "#f6f6f6", overflow: "hidden" }}>
+      <img
+        src="/images/projects/diane/diane-hero-kitchen-overview.jpg"
+        alt="Diane’s Dream Kitchen"
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      />
+    </div>
+    <div style={{ padding: 14 }}>
+      <div style={{ fontWeight: 600 }}>Diane’s Dream Kitchen</div>
+      <div style={{ color: "#666", fontSize: 14, marginTop: 6 }}>
+        Porcelain-painted shaker, white mottled quartz, antique bronze
+        detailing, Jurassic limestone flooring.
+      </div>
+    </div>
+  </a>
+</main>
+
       <footer style={{borderTop:"1px solid #e5e5e5",background:"#fafafa",marginTop:48}}>
         <div style={{maxWidth:960,margin:"0 auto",padding:"24px 16px",fontSize:14,color:"#555"}}>
           <div>© {new Date().getFullYear()} DM Design</div>
