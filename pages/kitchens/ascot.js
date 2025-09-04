@@ -18,32 +18,18 @@ export default function Ascot({ images = [] }) {
 
         {images.length === 0 ? (
           <div style={{border:"1px solid #e5e7eb", borderRadius:12, padding:24}}>
-            <span style={{
-              display:"inline-block", fontSize:12, padding:"2px 8px", borderRadius:999,
-              background:"#f3f4f6", color:"#374151", marginBottom:8
-            }}>
+            <span style={{display:"inline-block", fontSize:12, padding:"2px 8px", borderRadius:999, background:"#f3f4f6", color:"#374151", marginBottom:8}}>
               No images found
             </span>
             <p style={{marginTop:8}}>
-              Put photos in <code>/public/images/kitchens/ascot/</code>.
+              Put photos in <code>/public/images/ascot/</code>.
             </p>
           </div>
         ) : (
-          <section style={{
-            display:"grid",
-            gridTemplateColumns:"repeat(3, minmax(0, 1fr))",
-            gap: 16
-          }}>
+          <section style={{display:"grid", gridTemplateColumns:"repeat(3, minmax(0, 1fr))", gap: 16}}>
             {images.map(src => (
-              <figure key={src} style={{
-                position:"relative", width:"100%", paddingBottom:"75%",
-                border:"1px solid #e5e7eb", borderRadius:12, overflow:"hidden", background:"#fff"
-              }}>
-                <img
-                  src={src}
-                  alt=""
-                  style={{position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover"}}
-                />
+              <figure key={src} style={{position:"relative", width:"100%", paddingBottom:"75%", border:"1px solid #e5e7eb", borderRadius:12, overflow:"hidden", background:"#fff"}}>
+                <img src={src} alt="" style={{position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover"}} />
               </figure>
             ))}
           </section>
@@ -53,24 +39,23 @@ export default function Ascot({ images = [] }) {
   );
 }
 
-export async function getStaticProps() {
-  const folder = path.join(process.cwd(), "public", "images", "kitchens", "ascot");
+// Use SSR so new photos appear without redeploys
+export async function getServerSideProps() {
+  const folder = path.join(process.cwd(), "public", "images", "ascot");
 
   let files = [];
   try {
     files = fs.readdirSync(folder);
   } catch (e) {
-    // folder might not exist yet; that's fine
+    // folder missing is fine; we'll show the "No images" box
   }
 
-  // keep ONLY images; preserve your original names, any case/spacing
   const exts = new Set([".jpg",".jpeg",".png",".webp",".avif",".JPG",".JPEG",".PNG",".WEBP",".AVIF"]);
   const sorted = files
-    .filter((f) => exts.has(path.extname(f)))
+    .filter(f => exts.has(path.extname(f)))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
 
-  // URL-encode just the filename so spaces & symbols work
-  const images = sorted.map((f) => `/images/kitchens/ascot/${encodeURIComponent(f)}`);
+  const images = sorted.map(f => `/images/ascot/${encodeURIComponent(f)}`);
 
   return { props: { images } };
 }
