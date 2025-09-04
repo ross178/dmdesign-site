@@ -98,11 +98,6 @@ export default function DianesDreamKitchen() {
             In the lounge, a <strong>bespoke media wall</strong> frames the TV and hides cabling, so the whole space reads clean and calm.
             The finished result reflects both Ryan’s creativity and Diane’s trust in the process — premium, personal, and built for daily life.
           </p>
-
-          {/* Optionals if you uploaded more */}
-          {/* <div style={{margin:"22px 0 12px"}}>
-            <img src="/images/projects/diane/diane-worktop-detail.jpg" alt="Worktop detail" style={{width:"100%",borderRadius:14,border:"1px solid #eee"}}/>
-          </div> */}
         </article>
 
         {/* CTA */}
@@ -122,8 +117,5 @@ export default function DianesDreamKitchen() {
         </div>
       </footer>
     </div>
-  );
-}
-
   );
 }
