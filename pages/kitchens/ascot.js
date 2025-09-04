@@ -1,50 +1,76 @@
-// pages/kitchens/ascot.js
-export default function AscotRange() {
+import Head from "next/head";
+import fs from "fs";
+import path from "path";
+
+export default function Ascot({ images = [] }) {
   return (
-    <div style={{ fontFamily: "sans-serif", color: "#111" }}>
-      {/* Header */}
-      <header style={{ padding: "16px", borderBottom: "1px solid #eee" }}>
-        <a href="/" style={{ textDecoration: "none", color: "#111" }}>
-          ← Home
-        </a>
-        <nav style={{ float: "right" }}>
-          <a href="/kitchens" style={{ marginLeft: 16 }}>Kitchens</a>
-          <a href="/bedrooms" style={{ marginLeft: 16 }}>Bedrooms</a>
-          <a href="/bathrooms" style={{ marginLeft: 16 }}>Bathrooms</a>
-          <a href="/projects" style={{ marginLeft: 16 }}>Projects</a>
-          <a href="/contact" style={{ marginLeft: 16 }}>Contact</a>
-        </nav>
-      </header>
+    <>
+      <Head>
+        <title>Ascot Kitchens | DM Design</title>
+        <meta name="description" content="Ascot range — classic styling with modern practicality." />
+      </Head>
 
-      {/* Hero image */}
-      <section style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ height: 460, overflow: "hidden" }}>
-          <img
-            src="/images/ascot/ascot-light-grey-dust-grey-kitchen-island-with-bar-stools.jpg"
-            alt="Ascot kitchen hero"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </div>
-      </section>
-
-      {/* Content */}
-      <main style={{ maxWidth: 920, margin: "0 auto", padding: "28px 16px 40px" }}>
-        <h1 style={{ fontSize: 36, lineHeight: 1.2, margin: "6px 0 10px" }}>
-          Ascot – Slim-Frame Shaker
-        </h1>
-        <p style={{ color: "#666", fontSize: 16, margin: "0 0 18px" }}>
-          Ascot pares back the classic shaker with a slim 60&nbsp;mm frame and a
-          smooth one-piece face — a contemporary, low-maintenance take on a timeless door.
+      <main style={{maxWidth: "1200px", margin: "0 auto", padding: "32px 16px"}}>
+        <h1 style={{fontSize: "32px", fontWeight: 700, marginBottom: 8}}>Ascot</h1>
+        <p style={{color:"#6b7280", marginBottom: 24}}>
+          Classic shaker lines, built for daily use. Locally designed & installed.
         </p>
-      </main>
 
-      {/* Footer */}
-      <footer style={{ borderTop: "1px solid #eee", background: "#fafafa", marginTop: 20 }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "18px 16px", fontSize: 14, color: "#555" }}>
-          <div>© {new Date().getFullYear()} DM Design</div>
-          <div>sales@DMdesign.uk · 0131 344 0936 · Designed &amp; crafted in Scotland</div>
-        </div>
-      </footer>
-    </div>
+        {images.length === 0 ? (
+          <div style={{border:"1px solid #e5e7eb", borderRadius:12, padding:24}}>
+            <span style={{
+              display:"inline-block", fontSize:12, padding:"2px 8px", borderRadius:999,
+              background:"#f3f4f6", color:"#374151", marginBottom:8
+            }}>
+              No images found
+            </span>
+            <p style={{marginTop:8}}>
+              Put photos in <code>/public/images/kitchens/ascot/</code>.
+            </p>
+          </div>
+        ) : (
+          <section style={{
+            display:"grid",
+            gridTemplateColumns:"repeat(3, minmax(0, 1fr))",
+            gap: 16
+          }}>
+            {images.map(src => (
+              <figure key={src} style={{
+                position:"relative", width:"100%", paddingBottom:"75%",
+                border:"1px solid #e5e7eb", borderRadius:12, overflow:"hidden", background:"#fff"
+              }}>
+                <img
+                  src={src}
+                  alt=""
+                  style={{position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover"}}
+                />
+              </figure>
+            ))}
+          </section>
+        )}
+      </main>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  const folder = path.join(process.cwd(), "public", "images", "kitchens", "ascot");
+
+  let files = [];
+  try {
+    files = fs.readdirSync(folder);
+  } catch (e) {
+    // folder might not exist yet; that's fine
+  }
+
+  // keep ONLY images; preserve your original names, any case/spacing
+  const exts = new Set([".jpg",".jpeg",".png",".webp",".avif",".JPG",".JPEG",".PNG",".WEBP",".AVIF"]);
+  const sorted = files
+    .filter((f) => exts.has(path.extname(f)))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+
+  // URL-encode just the filename so spaces & symbols work
+  const images = sorted.map((f) => `/images/kitchens/ascot/${encodeURIComponent(f)}`);
+
+  return { props: { images } };
 }
