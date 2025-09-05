@@ -63,7 +63,7 @@ function Footer() {
   );
 }
 
-export default function Kitchens({ ascotThumb, cambridgeThumb }) {
+export default function Kitchens({ ascotThumb, cambridgeThumb, cartmelThumb }) {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
@@ -87,6 +87,9 @@ export default function Kitchens({ ascotThumb, cambridgeThumb }) {
                 <a href="/kitchens/ascot">
                   <Button variant="outline">View Ascot</Button>
                 </a>
+                <a href="/kitchens/cartmel">
+                  <Button variant="outline">View Cartmel</Button>
+                </a>
               </div>
             </div>
             <div className="rounded-2xl border bg-white shadow-sm h-64 lg:h-72 overflow-hidden">
@@ -103,11 +106,8 @@ export default function Kitchens({ ascotThumb, cambridgeThumb }) {
       {/* Ranges grid */}
       <Section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Cambridge card */}
-          <a
-            href="/kitchens/cambridge"
-            className="block rounded-2xl border overflow-hidden hover:shadow"
-          >
+          {/* Cambridge */}
+          <a href="/kitchens/cambridge" className="block rounded-2xl border overflow-hidden hover:shadow">
             <div className="h-40 bg-neutral-200 overflow-hidden">
               <img
                 src={cambridgeThumb || "/images/cambridge/Cambridge_Cream_Main.jpg"}
@@ -123,11 +123,8 @@ export default function Kitchens({ ascotThumb, cambridgeThumb }) {
             </div>
           </a>
 
-          {/* Ascot card */}
-          <a
-            href="/kitchens/ascot"
-            className="block rounded-2xl border overflow-hidden hover:shadow"
-          >
+          {/* Ascot */}
+          <a href="/kitchens/ascot" className="block rounded-2xl border overflow-hidden hover:shadow">
             <div className="h-40 bg-neutral-200 overflow-hidden">
               <img
                 src={ascotThumb || "/images/home/kitchens-hero.jpg"}
@@ -143,7 +140,22 @@ export default function Kitchens({ ascotThumb, cambridgeThumb }) {
             </div>
           </a>
 
-          {/* Add more range cards here later */}
+          {/* Cartmel */}
+          <a href="/kitchens/cartmel" className="block rounded-2xl border overflow-hidden hover:shadow">
+            <div className="h-40 bg-neutral-200 overflow-hidden">
+              <img
+                src={cartmelThumb || "/images/home/kitchens-hero.jpg"}
+                alt="Cartmel kitchen"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-4">
+              <div className="font-medium">Cartmel</div>
+              <div className="text-sm text-neutral-600 mt-1">
+                Timber look with subtle grain and hand-painted service.
+              </div>
+            </div>
+          </a>
         </div>
       </Section>
 
@@ -168,12 +180,16 @@ export async function getStaticProps() {
 
   const ascotDir = path.join(process.cwd(), "public", "images", "ascot");
   const cambridgeDir = path.join(process.cwd(), "public", "images", "cambridge");
+  const cartmelDir = path.join(process.cwd(), "public", "images", "cartmel");
 
   const ascotFile = pickFirstImage(ascotDir);
   const cambridgeFile = pickFirstImage(cambridgeDir);
+  const cartmelFile = pickFirstImage(cartmelDir);
 
   const ascotThumb = ascotFile ? `/images/ascot/${encodeURIComponent(ascotFile)}` : null;
   const cambridgeThumb = cambridgeFile ? `/images/cambridge/${encodeURIComponent(cambridgeFile)}` : null;
+  const cartmelThumb = cartmelFile ? `/images/cartmel/${encodeURIComponent(cartmelFile)}` : null;
 
-  return { props: { ascotThumb, cambridgeThumb } };
+  return { props: { ascotThumb, cambridgeThumb, cartmelThumb } };
 }
+
