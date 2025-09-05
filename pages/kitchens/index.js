@@ -1,4 +1,6 @@
 import React from "react";
+import fs from "fs";
+import path from "path";
 import { Button } from "../../components/ui/button";
 
 function Section({ children }) {
@@ -61,7 +63,7 @@ function Footer() {
   );
 }
 
-export default function Kitchens() {
+export default function Kitchens({ ascotThumb, cambridgeThumb }) {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
@@ -108,7 +110,7 @@ export default function Kitchens() {
           >
             <div className="h-40 bg-neutral-200 overflow-hidden">
               <img
-                src="/images/cambridge/Cambridge_Cream_Main.jpg"
+                src={cambridgeThumb || "/images/cambridge/Cambridge_Cream_Main.jpg"}
                 alt="Cambridge"
                 className="w-full h-full object-cover"
               />
@@ -128,7 +130,7 @@ export default function Kitchens() {
           >
             <div className="h-40 bg-neutral-200 overflow-hidden">
               <img
-                src="/images/ascot/ascot-light-grey-dust-grey-kitchen-island-with-bar-stools.jpg"
+                src={ascotThumb || "/images/home/kitchens-hero.jpg"}
                 alt="Ascot slim-frame shaker kitchen"
                 className="w-full h-full object-cover"
               />
@@ -150,5 +152,28 @@ export default function Kitchens() {
   );
 }
 
-}
+export async function getStaticProps() {
+  const pickFirstImage = (folder) => {
+    try {
+      const entries = fs.readdirSync(folder);
+      const exts = new Set([".jpg",".jpeg",".png",".webp",".avif",".JPG",".JPEG",".PNG",".WEBP",".AVIF"]);
+      const images = entries
+        .filter(f => exts.has(path.extname(f)))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+      return images.length ? images[0] : null;
+    } catch (e) {
+      return null;
+    }
+  };
 
+  const ascotDir = path.join(process.cwd(), "public", "images", "ascot");
+  const cambridgeDir = path.join(process.cwd(), "public", "images", "cambridge");
+
+  const ascotFile = pickFirstImage(ascotDir);
+  const cambridgeFile = pickFirstImage(cambridgeDir);
+
+  const ascotThumb = ascotFile ? `/images/ascot/${encodeURIComponent(ascotFile)}` : null;
+  const cambridgeThumb = cambridgeFile ? `/images/cambridge/${encodeURIComponent(cambridgeFile)}` : null;
+
+  return { props: { ascotThumb, cambridgeThumb } };
+}
