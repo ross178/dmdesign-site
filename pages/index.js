@@ -1,143 +1,129 @@
-// pages/projects/index.js
-export default function Projects() {
+// pages/index.js
+import React from "react";
+import Carousel from "../components/Carousel";
+import { Button } from "../components/ui/button";
+
+function Section({ children }) {
   return (
-    <div style={{ minHeight: "100vh", fontFamily: "sans-serif", color: "#111" }}>
-      {/* Top bar — logo left, nav right (match homepage) */}
-      <header
-        style={{
-          position: "sticky",
-          top: 0,
-          padding: "12px 0",
-          borderBottom: "1px solid #e5e5e5",
-          background: "#fff",
-          zIndex: 30,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            padding: "0 16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: 64,
-          }}
-        >
-          {/* Logo on the left */}
-          <a href="/" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <img src="/images/logo.png" alt="DM Design" style={{ height: 36, width: "auto" }} />
-          </a>
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      {children}
+    </section>
+  );
+}
 
-          {/* Nav on the right */}
-          <nav style={{ fontSize: 14, display: "flex", gap: 16 }}>
-            <a href="/kitchens" style={{ textDecoration: "none", color: "#444" }}>Kitchens</a>
-            <a href="/bedrooms" style={{ textDecoration: "none", color: "#444" }}>Bedrooms</a>
-            <a href="/bathrooms" style={{ textDecoration: "none", color: "#444" }}>Bathrooms</a>
-            <a href="/projects" style={{ textDecoration: "none", color: "#111", fontWeight: 600 }}>Projects</a>
-            <a href="/news" style={{ textDecoration: "none", color: "#444" }}>In The News</a>
-            <a href="/contact" style={{ textDecoration: "none", color: "#444" }}>Contact</a>
-          </nav>
+function Nav() {
+  return (
+    <div className="sticky top-0 z-30 backdrop-blur border-b bg-white/80">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+        <a href="/" className="flex items-center gap-3">
+          <img src="/images/logo.png" alt="DM Design" className="h-9 w-auto" />
+        </a>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="/kitchens" className="hover:opacity-70">Kitchens</a>
+          <a href="/bedrooms" className="hover:opacity-70">Bedrooms</a>
+          <a href="/bathrooms" className="hover:opacity-70">Bathrooms</a>
+          <a href="/projects" className="hover:opacity-70">Recent Projects</a>
+          <a href="/news" className="hover:opacity-70">In The News</a>
+          <a href="/contact" className="hover:opacity-70">Contact</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <a href="/contact"><Button size="sm">Free Home Design</Button></a>
         </div>
-      </header>
+      </div>
+    </div>
+  );
+}
 
-      <main style={{ maxWidth: 1120, margin: "0 auto", padding: "36px 16px 48px" }}>
-        {/* Page title */}
-        <h1 style={{ fontSize: 32, marginBottom: 8 }}>Project of the Month</h1>
-        <p style={{ color: "#666", marginBottom: 24 }}>
-          A closer look at a standout project from our recent installations.
+function Footer() {
+  return (
+    <footer className="border-t bg-neutral-50">
+      <Section>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+          <div className="flex items-center gap-3">
+            <img src="/images/logo.png" alt="DM Design" className="h-7 w-auto" />
+            <span className="text-sm text-neutral-600">
+              © {new Date().getFullYear()} DM Design. All rights reserved.
+            </span>
+          </div>
+          <div className="text-sm text-neutral-700">
+            <div>sales@DMdesign.uk</div>
+            <div>0131 344 0936</div>
+            <div>Designed & crafted in Scotland</div>
+          </div>
+          <div className="flex items-center sm:justify-end gap-4 text-sm">
+            <a href="#" className="hover:opacity-70">Facebook</a>
+            <a href="#" className="hover:opacity-70">Instagram</a>
+            <a href="#" className="hover:opacity-70">X</a>
+          </div>
+        </div>
+      </Section>
+    </footer>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white text-neutral-900">
+      <Nav />
+
+      {/* HERO CAROUSEL */}
+      <Carousel
+        className="border-b"
+        slides={[
+          "/images/home/cambridge-fir-green.jpg",
+          "/images/home/cambridge-indigo.jpg",
+          "/images/home/kitchens-hero.jpg",
+          "/images/home/newmarket-d.jpg",
+          "/images/home/sage-island.jpg",
+        ]}
+      />
+
+      {/* INTRO */}
+      <Section>
+        <h1 className="text-3xl sm:text-4xl font-semibold">Kitchens, Bedrooms & Bathrooms.</h1>
+        <p className="mt-4 text-neutral-700 max-w-3xl">
+          <strong>Crafted Living. Effortless Style.</strong> At DM Design, we craft personalised spaces that elevate
+          everyday living — blending timeless craftsmanship with modern innovation.
         </p>
+        <div className="mt-6 flex items-center gap-3">
+          <a href="/contact"><Button>Book your free design consultation</Button></a>
+          <a href="/kitchens"><Button variant="outline">Explore Kitchens</Button></a>
+        </div>
+      </Section>
 
-        {/* Hero row: smaller image (left) + teaser text (right) */}
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(260px, 420px) 1fr",
-            gap: 24,
-            alignItems: "center",
-            marginBottom: 32,
-          }}
+      {/* PROJECT OF THE MONTH */}
+      <Section>
+        <div className="flex items-end justify-between">
+          <h2 className="text-2xl font-semibold">Project of the Month</h2>
+          <a href="/projects" className="text-sm hover:opacity-70">View all projects →</a>
+        </div>
+
+        <a
+          href="/projects/dianes-dream-kitchen"
+          className="block mt-6 rounded-2xl border overflow-hidden hover:shadow"
+          style={{ textDecoration: "none", color: "inherit" }}
         >
-          <div
-            style={{
-              border: "1px solid #eee",
-              borderRadius: 14,
-              overflow: "hidden",
-              background: "#fafafa",
-            }}
-          >
+          <div className="h-56 bg-neutral-100 overflow-hidden">
             <img
-              src="/images/projects/diane/diane-dining-living-overview.jpg"
-              alt="Diane’s kitchen & living space overview"
-              style={{ width: "100%", height: 240, objectFit: "cover", display: "block" }}
+              src="/images/projects/diane/diane-hero-kitchen-overview.jpg"
+              alt="Diane’s Dream Kitchen"
+              className="w-full h-full object-cover"
             />
           </div>
-
-          <div>
-            <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
-              Diane’s Dream Kitchen and Living Space
-            </h2>
-            <p style={{ color: "#444", lineHeight: 1.7, margin: "0 0 10px" }}>
-              When Diane approached Ryan to design a new kitchen and living area for her
-              impressive extension, it was the kind of project that designers love to be part of.
-              With Diane open to ideas, Ryan and the team had the freedom to bring creative instincts
-              to the forefront and craft a space that is as functional as it is beautiful...
-              <a href="/projects/dianes-dream-kitchen" style={{ color: "#111", textDecoration: "none", fontWeight: 600 }}>
-                {" "}Read more…
-              </a>
-            </p>
+          <div className="p-4">
+            <div className="font-medium">Diane’s Dream Kitchen</div>
+            <div className="text-sm text-neutral-600">
+              Porcelain-painted shaker, white mottled quartz, antique bronze detailing, Jurassic limestone.
+            </div>
           </div>
-        </section>
+        </a>
+      </Section>
 
-        {/* Project cards (add more later if needed) */}
-        <section>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: 16,
-            }}
-          >
-            {/* Diane card */}
-            <a
-              href="/projects/dianes-dream-kitchen"
-              style={{
-                display: "block",
-                textDecoration: "none",
-                color: "inherit",
-                border: "1px solid #eee",
-                borderRadius: 14,
-                overflow: "hidden",
-                background: "#fff",
-              }}
-            >
-              <div style={{ height: 160, background: "#f0f0f0", overflow: "hidden" }}>
-                <img
-                  src="/images/projects/diane/diane-appliance-wall.jpg"
-                  alt="Diane’s Dream Kitchen and Living Space – appliance wall"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-              <div style={{ padding: 12 }}>
-                <div style={{ fontWeight: 600, marginBottom: 4 }}>
-                  Diane’s Dream Kitchen and Living Space
-                </div>
-                <div style={{ fontSize: 14, color: "#666" }}>
-                  Porcelain-painted timber shaker with white quartz & oak highlights.
-                </div>
-              </div>
-            </a>
-          </div>
-        </section>
-      </main>
-
-      <footer style={{ borderTop: "1px solid #e5e5e5", background: "#fafafa", marginTop: 48 }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "24px 16px", fontSize: 14, color: "#555" }}>
-          <div>© {new Date().getFullYear()} DM Design</div>
-          <div>sales@DMdesign.uk · 0131 344 0936 · Designed &amp; crafted in Scotland</div>
-        </div>
-      </footer>
+      <Footer />
     </div>
+  );
+}
+
   );
 }
 
