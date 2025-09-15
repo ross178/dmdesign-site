@@ -1,3 +1,4 @@
+// pages/bedrooms/index.js
 import React from "react";
 import Nav from "../../components/Nav";
 import { Button } from "../../components/ui/button";
@@ -24,17 +25,19 @@ export default function BedroomsLanding() {
             spaces that maximise storage, function and beauty. Every bedroom is tailored around
             your lifestyle, combining practical solutions with finishes that look exceptional for years to come.
           </p>
-          <div className="mt-6 flex gap-3">
+
+          {/* CTAs including Recent Examples */}
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="/contact"><Button>Book a free home design</Button></a>
             <a href="/projects"><Button variant="outline">View our project case studies</Button></a>
-            <a href="/bedrooms/recent" className="underline text-sm ml-2">See recent examples →</a>
+            <a href="/bedrooms/recent" className="underline text-sm ml-1">See recent examples →</a>
           </div>
         </Section>
       </div>
 
       <Section>
+        {/* Sliding range card (kept simple for now) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Sliding range card */}
           <a
             href="/bedrooms/sliding"
             className="group border rounded-2xl overflow-hidden hover:shadow transition"
@@ -59,6 +62,10 @@ export default function BedroomsLanding() {
           </a>
         </div>
       </Section>
+    </div>
+  );
+}
+
     </div>
   );
 }
