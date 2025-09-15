@@ -1,3 +1,4 @@
+// pages/bedrooms/sliding.js
 import Nav from "../../components/Nav";
 import { Button } from "../../components/ui/button";
 
@@ -73,3 +74,21 @@ export default function SlidingRange() {
       </Section>
 
       {/* Gallery */}
+      <Section>
+        <h3 className="text-lg font-semibold">Gallery</h3>
+        <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {gallery.map((src, i) => (
+            <div key={i} className="border rounded-xl overflow-hidden">
+              <img
+                src={src}
+                alt={`Sliding example ${i + 1}`}
+                className="w-full h-56 object-cover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+    </div>
+  );
+}
