@@ -1,4 +1,3 @@
-import React from "react";
 import Nav from "../../components/Nav";
 import { Button } from "../../components/ui/button";
 
@@ -20,11 +19,9 @@ function Bullet({ children }) {
 }
 
 export default function SlidingRange() {
-  // ✅ Hero
   const HERO =
     "/images/bedrooms/sliding/dm-design-sliding-storm-grey-black-frame-2.webp";
 
-  // ✅ Gallery (the other 4 files)
   const gallery = [
     "/images/bedrooms/sliding/dm-design-sliding-cashmere-greysmoked-mirror-black-frame.webp",
     "/images/bedrooms/sliding/dm-design-sliding-pure-white-mirror-satin-nickel-frame.webp",
@@ -52,17 +49,13 @@ export default function SlidingRange() {
             refined finishes.
           </p>
           <div className="mt-6 flex gap-3">
-            <a href="/contact">
-              <Button>Book a free home design</Button>
-            </a>
-            <a href="/bedrooms/recent">
-              <Button variant="outline">See recent examples</Button>
-            </a>
+            <a href="/contact"><Button>Book a free home design</Button></a>
+            <a href="/bedrooms/recent"><Button variant="outline">See recent examples</Button></a>
           </div>
         </Section>
       </div>
 
-      {/* Hero image */}
+      {/* Hero */}
       <div className="w-full h-[44vh] min-h-[320px] bg-neutral-100 overflow-hidden border-b">
         <img
           src={HERO}
@@ -75,28 +68,8 @@ export default function SlidingRange() {
       <Section>
         <h2 className="text-xl font-semibold">Why choose Sliding</h2>
         <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-neutral-700">
-          {bullets.map((b, i) => (
-            <Bullet key={i}>{b}</Bullet>
-          ))}
+          {bullets.map((b, i) => <Bullet key={i}>{b}</Bullet>)}
         </ul>
       </Section>
 
       {/* Gallery */}
-      <Section>
-        <h3 className="text-lg font-semibold">Gallery</h3>
-        <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {gallery.map((src, i) => (
-            <div key={i} className="border rounded-xl overflow-hidden">
-              <img
-                src={src}
-                alt={`Sliding example ${i + 1}`}
-                className="w-full h-56 object-cover"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      </Section>
-    </div>
-  );
-}
