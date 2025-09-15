@@ -1,4 +1,3 @@
-// pages/bedrooms/index.js
 import React from "react";
 import Nav from "../../components/Nav";
 import { Button } from "../../components/ui/button";
@@ -16,6 +15,7 @@ export default function BedroomsLanding() {
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
 
+      {/* Intro */}
       <div className="border-b bg-neutral-50">
         <Section>
           <h1 className="text-3xl sm:text-4xl font-semibold">Bedrooms</h1>
@@ -26,18 +26,22 @@ export default function BedroomsLanding() {
             your lifestyle, combining practical solutions with finishes that look exceptional for years to come.
           </p>
 
-          {/* CTAs including Recent Examples */}
+          {/* CTAs */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="/contact"><Button>Book a free home design</Button></a>
-            <a href="/projects"><Button variant="outline">View our project case studies</Button></a>
-            <a href="/bedrooms/recent" className="underline text-sm ml-1">See recent examples →</a>
+            <a href="/contact">
+              <Button>Book a free home design</Button>
+            </a>
+            <a href="/bedrooms/recent">
+              <Button variant="outline">See recent examples</Button>
+            </a>
           </div>
         </Section>
       </div>
 
+      {/* Range cards */}
       <Section>
-        {/* Sliding range card (kept simple for now) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Sliding range card */}
           <a
             href="/bedrooms/sliding"
             className="group border rounded-2xl overflow-hidden hover:shadow transition"
@@ -62,10 +66,6 @@ export default function BedroomsLanding() {
           </a>
         </div>
       </Section>
-    </div>
-  );
-}
-
     </div>
   );
 }
