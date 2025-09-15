@@ -1,4 +1,3 @@
-// pages/bedrooms/shaker.js
 import Nav from "../../components/Nav";
 import { Button } from "../../components/ui/button";
 
@@ -10,44 +9,29 @@ function Section({ children }) {
   );
 }
 
-// ▼ Set extensions if yours are .jpg instead of .webp
-const EXT = ".webp";
-
-// ▼ Put these files in /public/images/bedrooms/shaker/
 const IMG = {
-  hero: `/images/bedrooms/shaker/dm-design-navy-shaker-taupe-room${EXT}`,
-  detail1: `/images/bedrooms/shaker/dm-design-cashmere-wardrobe${EXT}`,
-  detail2: `/images/bedrooms/shaker/dm-design-shaker-narrow-corner-wardrobes-cashmere${EXT}`,
-  install: `/images/bedrooms/shaker/dm-design-fitted-wardrobe-porcelain-shaker${EXT}`,
+  hero: "/images/bedrooms/shaker/dm-design-navy-shaker-taupe-room.webp",
+  detail1: "/images/bedrooms/shaker/dm-design-cashmere-wardrobe.webp",
+  detail2: "/images/bedrooms/shaker/dm-design-shaker-narrow-corner-wardrobes-cashmere.webp",
+  install: "/images/bedrooms/shaker/dm-design-fitted-wardrobe-porcelain-shaker.webp",
 };
 
-// Safe image wrapper: if a file is missing, you’ll see a neat placeholder (no broken icons)
 function Picture({ src, alt, className = "" }) {
-  const isPlaceholder = !src || src.endsWith("undefined");
-  return isPlaceholder ? (
-    <div className={`bg-neutral-200 border rounded-xl flex items-center justify-center ${className}`}>
-      <span className="text-neutral-600 text-sm px-3">[Image placeholder]</span>
-    </div>
-  ) : (
-    <img src={src} alt={alt} className={`w-full h-full object-cover rounded-xl border ${className}`} />
-  );
-}
-
-function Bullet({ children }) {
   return (
-    <li className="pl-5 relative">
-      <span className="absolute left-0 top-2 h-1.5 w-1.5 rounded-full bg-neutral-800"></span>
-      {children}
-    </li>
+    <img
+      src={src}
+      alt={alt}
+      className={`w-full h-full object-cover rounded-xl border ${className}`}
+      loading="lazy"
+    />
   );
 }
 
-export default function ShakerRangeArticle() {
+export default function Shaker() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
 
-      {/* Header & CTAs */}
       <div className="border-b bg-neutral-50">
         <Section>
           <h1 className="text-3xl sm:text-4xl font-semibold">Shaker Bedrooms</h1>
@@ -69,12 +53,10 @@ export default function ShakerRangeArticle() {
         </Section>
       </div>
 
-      {/* Hero image */}
       <div className="w-full h-[44vh] min-h-[320px] bg-neutral-100 overflow-hidden border-b">
         <Picture src={IMG.hero} alt="Shaker bedroom hero" className="w-full h-full object-cover rounded-none border-0" />
       </div>
 
-      {/* Body: images woven into copy */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <div>
@@ -85,12 +67,6 @@ export default function ShakerRangeArticle() {
               actually live: long hanging for dresses and coats, split rails for shirts and trousers, deep
               drawers for knitwear, and divisions that stop piles toppling.
             </p>
-            <ul className="mt-4 grid sm:grid-cols-2 gap-3 text-neutral-700">
-              <Bullet>Painted frames with durable finishes</Bullet>
-              <Bullet>Soft-close hinges and quality runners</Bullet>
-              <Bullet>LED strip or puck lighting (optional)</Bullet>
-              <Bullet>Made-to-measure internals for your layout</Bullet>
-            </ul>
           </div>
           <div>
             <Picture src={IMG.detail1} alt="Cashmere Shaker wardrobe detail" className="h-72" />
@@ -118,22 +94,4 @@ export default function ShakerRangeArticle() {
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2">
             <h2 className="text-xl font-semibold">Finish palette and hardware</h2>
-            <p className="mt-3 text-neutral-700">
-              Popular colours include cashmere, porcelain and deep navy, with handles in antique brass, satin
-              nickel or matte black. We’ll help you pick combinations that feel right in daylight and at night,
-              and specify lighting that doesn’t wash out the colour.
-            </p>
-            <div className="mt-6 flex gap-3">
-              <a href="/contact"><Button>Book a free home design</Button></a>
-              <a href="/bedrooms"><Button variant="outline">Back to Bedrooms</Button></a>
-            </div>
-          </div>
-          <div>
-            <Picture src={IMG.install} alt="Installed porcelain Shaker wardrobe" className="h-72" />
-          </div>
-        </div>
-      </Section>
-    </div>
-  );
-}
-
+            <p
