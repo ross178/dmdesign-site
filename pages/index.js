@@ -1,7 +1,6 @@
 import React from "react";
-import Nav from "../components/Nav";
-import Carousel from "../components/Carousel";
-import { Button } from "../components/ui/button";
+import Nav from "../../components/Nav";
+import { Button } from "../../components/ui/button";
 
 function Section({ children }) {
   return (
@@ -11,93 +10,78 @@ function Section({ children }) {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t bg-neutral-50">
-      <Section>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
-          <div className="flex items-center gap-3">
-            <img src="/images/logo.png" alt="DM Design" className="h-7 w-auto" />
-            <span className="text-sm text-neutral-600">
-              © {new Date().getFullYear()} DM Design. All rights reserved.
-            </span>
-          </div>
-          <div className="text-sm text-neutral-600">
-            <div>0131 344 0936</div>
-            <div>Designed &amp; crafted in Scotland</div>
-          </div>
-          <div className="flex items-center sm:justify-end gap-4 text-sm">
-            <a href="#" className="hover:opacity-70">Facebook</a>
-            <a href="#" className="hover:opacity-70">Instagram</a>
-            <a href="#" className="hover:opacity-70">X</a>
-          </div>
-        </div>
-      </Section>
-    </footer>
-  );
-}
+const SHAKER_THUMB = "/images/bedrooms/shaker/dm-design-navy-shaker-taupe-room.webp";
 
-export default function Home() {
+export default function BedroomsLanding() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
 
-      {/* HERO CAROUSEL */}
-      <Carousel
-        className="border-b"
-        slides={[
-          "/images/home/cambridge-fir-green.jpg",
-    "/images/home/cambridge-indigo.jpg",
-    "/images/home/kitchens-hero.jpg",
-    "/images/home/newmarket-d.jpg",
-    "/images/home/sage-island.jpg",
-        ]}
-      />
-
-      {/* INTRO + CTAs */}
-      <Section>
-        <h1 className="text-3xl sm:text-4xl font-semibold">
-          Bespoke Kitchens, Bedrooms &amp; Bathrooms
-        </h1>
-        <p className="mt-4 text-neutral-700 max-w-2xl">
-          Made-to-measure design and installation for real homes and everyday living — 
-          blending timeless craftsmanship with modern innovation.
-        </p>
-        <div className="mt-6 flex items-center gap-3">
-          <a href="/contact"><Button>Book your free design consultation</Button></a>
-          <a href="/kitchens"><Button variant="outline">Explore Kitchens</Button></a>
-        </div>
-      </Section>
-
-      {/* PROJECT OF THE MONTH */}
-      <Section>
-        <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-semibold">Project of the Month</h2>
-          <a href="/projects" className="text-sm hover:opacity-70">View all projects →</a>
-        </div>
-
-        <a
-          href="/projects/dianes-dream-kitchen"
-          className="block mt-6 rounded-2xl border overflow-hidden hover:shadow"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <div className="h-56 bg-neutral-100 overflow-hidden">
-            <img
-              src="/images/kitchens-hero.jpg"
-              alt="Diane’s Dream Kitchen and Living Space"
-              className="w-full h-full object-cover"
-            />
+      <div className="border-b bg-neutral-50">
+        <Section>
+          <h1 className="text-3xl sm:text-4xl font-semibold">Bedrooms</h1>
+          <p className="mt-4 max-w-2xl text-neutral-700">
+            DM Design craft and install bespoke fitted bedrooms designed to last a lifetime.
+            From initial design to final installation, our team work across Scotland to deliver
+            spaces that maximise storage, function and beauty. Every bedroom is tailored around
+            your lifestyle, combining practical solutions with finishes that look exceptional for years to come.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a href="/contact"><Button>Book a free home design</Button></a>
+            <a href="/bedrooms/recent"><Button variant="outline">See recent examples</Button></a>
           </div>
-          <div className="p-4">
-            <div className="font-medium">Diane’s Dream Kitchen and Living Space</div>
-            <div className="text-sm text-neutral-600">
-              Porcelain-painted shaker, white mottled quartz, antique bronze detailing, Jurassic limestone.
+        </Section>
+      </div>
+
+      <Section>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a
+            href="/bedrooms/sliding"
+            className="group border rounded-2xl overflow-hidden hover:shadow transition"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="h-52 bg-neutral-100 overflow-hidden">
+              <img
+                src="/images/bedrooms/sliding/dm-design-sliding-storm-grey-black-frame-2.webp"
+                alt="Sliding wardrobes"
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+              />
             </div>
-          </div>
-        </a>
-      </Section>
+            <div className="p-4">
+              <div className="text-lg font-medium">Sliding</div>
+              <div className="text-sm text-neutral-600 mt-1">
+                Space-maximising sliding wardrobes tailored to alcoves, eaves and box rooms.
+              </div>
+              <div className="text-sm mt-3 opacity-70 group-hover:opacity-100">Explore →</div>
+            </div>
+          </a>
 
-      <Footer />
+          <a
+            href="/bedrooms/shaker"
+            className="group border rounded-2xl overflow-hidden hover:shadow transition"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="h-52 bg-neutral-100 overflow-hidden flex items-center justify-center">
+              <img
+                src={SHAKER_THUMB}
+                alt="Shaker bedroom"
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+                onError={(e) => {
+                  e.currentTarget.outerHTML =
+                    '<div class="w-full h-full flex items-center justify-center text-neutral-600 text-sm">[Shaker thumbnail]</div>';
+                }}
+              />
+            </div>
+            <div className="p-4">
+              <div className="text-lg font-medium">Shaker</div>
+              <div className="text-sm text-neutral-600 mt-1">
+                Classic framed doors with modern internals and durable finishes.
+              </div>
+              <div className="text-sm mt-3 opacity-70 group-hover:opacity-100">Explore →</div>
+            </div>
+          </a>
+        </div>
+      </Section>
     </div>
   );
 }
