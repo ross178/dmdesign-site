@@ -94,4 +94,21 @@ export default function Shaker() {
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2">
             <h2 className="text-xl font-semibold">Finish palette and hardware</h2>
-            <p
+            <p className="mt-3 text-neutral-700">
+              Popular colours include cashmere, porcelain and deep navy, with handles in antique brass, satin
+              nickel or matte black. We’ll help you pick combinations that feel right in daylight and at night,
+              and specify lighting that doesn’t wash out the colour.
+            </p>
+            <div className="mt-6 flex gap-3">
+              <a href="/contact"><Button>Book a free home design</Button></a>
+              <a href="/bedrooms"><Button variant="outline">Back to Bedrooms</Button></a>
+            </div>
+          </div>
+          <div>
+            <Picture src={IMG.install} alt="Installed porcelain Shaker wardrobe" className="h-72" />
+          </div>
+        </div>
+      </Section>
+    </div>
+  );
+}
