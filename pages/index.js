@@ -46,11 +46,11 @@ export default function Home() {
       <Carousel
         className="border-b"
         slides={[
-          "/images/cambridge-fir-green.jpg",
-          "/images/cambridge-indigo.jpg",
-          "/images/kitchens-hero.jpg",
-          "/images/newmarket-d.jpg",
-          "/images/sage-island.jpg",
+          "/images/home/cambridge-fir-green.jpg",
+    "/images/home/cambridge-indigo.jpg",
+    "/images/kitchens-hero.jpg",
+    "/images/home/newmarket-d.jpg",
+    "/images/home/sage-island.jpg",
         ]}
       />
 
