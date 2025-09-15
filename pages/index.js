@@ -41,22 +41,21 @@ function Footer() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
-      {/* Top navigation */}
       <Nav />
 
-      {/* HERO CAROUSEL */}
+      {/* HERO CAROUSEL — uses only the 5 images you said exist */}
       <Carousel
         className="border-b"
         slides={[
-          "/images/home/cambridge-fir-green.jpg",
-          "/images/home/cambridge-indigo.jpg",
-          "/images/home/kitchens-hero.jpg",
-          "/images/home/newmarket-d.jpg",
-          "/images/home/sage-island.jpg",
+          "/images/cambridge-fir-green.jpg",
+          "/images/cambridge-indigo.jpg",
+          "/images/kitchens-hero.jpg",
+          "/images/newmarket-d.jpg",
+          "/images/sage-island.jpg",
         ]}
       />
 
-      {/* BRAND INTRO + CTAs */}
+      {/* INTRO + CTAs */}
       <Section>
         <h1 className="text-3xl sm:text-4xl font-semibold">
           Bespoke Kitchens, Bedrooms &amp; Bathrooms
@@ -67,39 +66,4 @@ export default function Home() {
         </p>
         <div className="mt-6 flex items-center gap-3">
           <a href="/contact"><Button>Book your free design consultation</Button></a>
-          <a href="/kitchens"><Button variant="outline">Explore Kitchens</Button></a>
-        </div>
-      </Section>
-
-      {/* PROJECT OF THE MONTH (card with thumbnail + link) */}
-      <Section>
-        <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-semibold">Project of the Month</h2>
-          <a href="/projects" className="text-sm hover:opacity-70">View all projects →</a>
-        </div>
-
-        <a
-          href="/projects/dianes-dream-kitchen"
-          className="block mt-6 rounded-2xl border overflow-hidden hover:shadow"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <div className="h-56 bg-neutral-100 overflow-hidden">
-            <img
-              src="/images/projects/diane/diane-hero-kitchen-overview.jpg"
-              alt="Diane’s Dream Kitchen and Living Space"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="p-4">
-            <div className="font-medium">Diane’s Dream Kitchen and Living Space</div>
-            <div className="text-sm text-neutral-600">
-              Porcelain-painted shaker, white mottled quartz, antique bronze detailing, Jurassic limestone.
-            </div>
-          </div>
-        </a>
-      </Section>
-
-      <Footer />
-    </div>
-  );
-}
+          <a href="/kitchens"><Button variant="outl
