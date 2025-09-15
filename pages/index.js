@@ -48,7 +48,7 @@ export default function Home() {
         slides={[
           "/images/home/cambridge-fir-green.jpg",
     "/images/home/cambridge-indigo.jpg",
-    "/images/kitchens-hero.jpg",
+    "/images/home/kitchens-hero.jpg",
     "/images/home/newmarket-d.jpg",
     "/images/home/sage-island.jpg",
         ]}
