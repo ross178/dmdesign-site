@@ -10,12 +10,14 @@ function Section({ children }) {
   );
 }
 
+const SHAKER_THUMB =
+  "/images/bedrooms/shaker/dm-design-navy-shaker-taupe-room.webp";
+
 export default function BedroomsLanding() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <Nav />
 
-      {/* Intro */}
       <div className="border-b bg-neutral-50">
         <Section>
           <h1 className="text-3xl sm:text-4xl font-semibold">Bedrooms</h1>
@@ -26,7 +28,6 @@ export default function BedroomsLanding() {
             your lifestyle, combining practical solutions with finishes that look exceptional for years to come.
           </p>
 
-          {/* CTAs */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="/contact">
               <Button>Book a free home design</Button>
@@ -38,10 +39,8 @@ export default function BedroomsLanding() {
         </Section>
       </div>
 
-      {/* Range cards */}
       <Section>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Sliding range card */}
           <a
             href="/bedrooms/sliding"
             className="group border rounded-2xl overflow-hidden hover:shadow transition"
@@ -59,9 +58,32 @@ export default function BedroomsLanding() {
               <div className="text-sm text-neutral-600 mt-1">
                 Space-maximising sliding wardrobes tailored to alcoves, eaves and box rooms.
               </div>
-              <div className="text-sm mt-3 opacity-70 group-hover:opacity-100">
-                Explore →
+              <div className="text-sm mt-3 opacity-70 group-hover:opacity-100">Explore →</div>
+            </div>
+          </a>
+
+          <a
+            href="/bedrooms/shaker"
+            className="group border rounded-2xl overflow-hidden hover:shadow transition"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="h-52 bg-neutral-100 overflow-hidden flex items-center justify-center">
+              <img
+                src={SHAKER_THUMB}
+                alt="Shaker bedroom"
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+                onError={(e) => {
+                  e.currentTarget.outerHTML =
+                    '<div class="w-full h-full flex items-center justify-center text-neutral-600 text-sm">[Shaker thumbnail]</div>';
+                }}
+              />
+            </div>
+            <div className="p-4">
+              <div className="text-lg font-medium">Shaker</div>
+              <div className="text-sm text-neutral-600 mt-1">
+                Classic framed doors with modern internals and durable finishes.
               </div>
+              <div className="text-sm mt-3 opacity-70 group-hover:opacity-100">Explore →</div>
             </div>
           </a>
         </div>
